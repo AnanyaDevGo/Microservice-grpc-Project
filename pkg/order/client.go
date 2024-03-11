@@ -2,9 +2,9 @@ package order
 
 import (
 	"fmt"
-	"main/pkg/config"
-	"main/pkg/order/pb"
 
+	"github.com/AnanyaDevGo/pkg/config"
+	"github.com/AnanyaDevGo/pkg/order/pb"
 	"google.golang.org/grpc"
 )
 

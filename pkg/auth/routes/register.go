@@ -2,9 +2,9 @@ package routes
 
 import (
 	"context"
-	"main/pkg/auth/pb"
 	"net/http"
 
+	"github.com/AnanyaDevGo/pkg/auth/pb"
 	"github.com/gin-gonic/gin"
 )
 

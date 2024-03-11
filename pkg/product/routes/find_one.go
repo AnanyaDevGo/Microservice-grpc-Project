@@ -2,10 +2,10 @@ package routes
 
 import (
 	"context"
-	"main/pkg/product/pb"
 	"net/http"
 	"strconv"
 
+	"github.com/AnanyaDevGo/pkg/product/pb"
 	"github.com/gin-gonic/gin"
 )
 
