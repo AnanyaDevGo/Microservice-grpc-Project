@@ -21,7 +21,7 @@ func AdminLogin(ctx *gin.Context, c pb.AuthServiceClient) {
 		return
 	}
 
-	res, err := c.Login(context.Background(), &pb.LoginRequest{
+	res, err := c.AdminLogin(context.Background(), &pb.AdminLoginRequest{
 		Email:    b.Email,
 		Password: b.Password,
 	})

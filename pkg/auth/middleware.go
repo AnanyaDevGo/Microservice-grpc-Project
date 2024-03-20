@@ -35,6 +35,7 @@ func (c *AuthMiddlewareConfig) AuthRequired(ctx *gin.Context) {
 	res, err := c.svc.Client.Validate(context.Background(), &pb.ValidateRequest{
 		Token: token[1],
 	})
+	fmt.Println("res", res)
 
 	if err != nil || res.Status != http.StatusOK {
 		ctx.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": "invalid authorization token"})
