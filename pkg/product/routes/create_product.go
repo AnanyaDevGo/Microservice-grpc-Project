@@ -2,7 +2,6 @@ package routes
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 
 	"github.com/AnanyaDevGo/pkg/product/pb"
@@ -19,11 +18,15 @@ func CreateProduct(ctx *gin.Context, c pb.ProductServiceClient) {
 	body := CreateProductRequestBody{}
 
 	if err := ctx.BindJSON(&body); err != nil {
-		fmt.Println("error", err)
 		ctx.AbortWithError(http.StatusBadRequest, err)
 		return
 	}
-	fmt.Println("body", body)
+
+	userRole, _ := ctx.Get("userRole")
+	if userRole != "admin" {
+		ctx.AbortWithStatusJSON(http.StatusForbidden, gin.H{"error": "Only admins can create products"})
+		return
+	}
 
 	res, err := c.CreateProduct(context.Background(), &pb.CreateProductRequest{
 		Name:  body.Name,
