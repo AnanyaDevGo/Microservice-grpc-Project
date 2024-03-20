@@ -2,6 +2,7 @@ package routes
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 	"strconv"
 
@@ -17,6 +18,7 @@ func FineOne(ctx *gin.Context, c pb.ProductServiceClient) {
 	})
 
 	if err != nil {
+		fmt.Println("error", err)
 		ctx.AbortWithError(http.StatusBadGateway, err)
 		return
 	}
